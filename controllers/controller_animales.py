@@ -6,7 +6,12 @@ guarderia_bp = Blueprint('daycare', __name__, url_prefix='/daycare')
 
 @guarderia_bp.route('/upload_animals', methods = ['GET','POST'])
 def upload_info_animals():
-    insert_animals()
+    animals = Guarderia.query.count()
+    print(animals)
+    if animals.__eq__(0):
+        insert_animals()
+    else:
+        return jsonify({"mensaje": "Los datos ya fueron cargados."})
     return get_list_animal()
 
 @guarderia_bp.route('/get_animals', methods= ['GET'])
@@ -39,3 +44,9 @@ def create_animal():
     db.session.add(create)
     db.session.commit()
     return  jsonify({"mensaje": f"El animal {animal['name']} fue creado correctamente."}), 200 
+
+@guarderia_bp.route('/get_animal/<string:name>', methods= ['GET'])
+def get_animal_name(name):
+    animals = Guarderia.query.filter(Guarderia.name == name).all()
+    print(animals)
+    return jsonify([{'id': animal.id,'name': animal.name, 'type': animal.type, 'breed': animal.breed, 'age': animal.age, 'sound': animal.sound} for animal in animals]), 200

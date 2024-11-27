@@ -15,18 +15,14 @@
 <h2>Introducción</h2>
 <p>Esta API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los usuarios.</p>
 
-<h2>Nota:</h2>
-<p>En el tema Web se uso para e despliegue de PYTHON: https://vercel.com/<br>Para el tema de base de datos se uso: https://railway.app/ </p>
-
 <h2>Endpoints:</h2>
 <ul>
     <li><b>Local:</b>http://127.0.0.1:5000/</li>
-    <li><b>WEB:</b>https://apirest-eavendanom.vercel.app</li>
 </ul>
 
 
 <div class="endpoint">
-    <h3>1. Crea una lista de animales.</h3>
+    <h3>1. Carga una lista de cuatro animales si la base de datos no tiene registros.</h3>
     <p><strong>URL:</strong> <code>/daycare/upload_animals</code></p>
     <p><strong>Método:</strong> <code>POST</code></p>
     <h4>Ejemplo de respuesta:</h4>
@@ -161,6 +157,25 @@
                 "sound": "Eek Eek",
                 "type": "Boa"
             }
+        ]
+    </code></pre>
+</div>
+
+<div class="endpoint">
+    <h3>5. Retorna una lista de animales filtrados por nombre</h3>
+    <p><strong>URL:</strong> <code>/daycare/get_animal/Birmano</code></p>
+    <p><strong>Método:</strong> <code>GET</code></p>
+    <h4>Ejemplo de respuesta:</h4>
+    <pre><code>
+        [
+            {
+                "age": "5",
+                "breed": "Birmano",
+                "id": 1,
+                "name": "felix",
+                "sound": "Miaow",
+                "type": "Gato"
+            }      
         ]
     </code></pre>
 </div>
