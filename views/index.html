@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de API REST</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+<h1>Documentación de la API REST</h1>
+
+<p>Esta es la documentación de la API REST para gestionar una guarderia.</p>
+
+<h2>Introducción</h2>
+<p>Esta API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los usuarios.</p>
+
+<h2>Nota:</h2>
+<p>En el tema Web se uso para e despliegue de PYTHON: https://vercel.com/<br>Para el tema de base de datos se uso: https://railway.app/ </p>
+
+<h2>Endpoints:</h2>
+<ul>
+    <li><b>Local:</b>http://127.0.0.1:5000/</li>
+    <li><b>WEB:</b>https://apirest-eavendanom.vercel.app</li>
+</ul>
+
+
+<div class="endpoint">
+    <h3>1. Crea una lista de animales.</h3>
+    <p><strong>URL:</strong> <code>/daycare/upload_animals</code></p>
+    <p><strong>Método:</strong> <code>POST</code></p>
+    <h4>Ejemplo de respuesta:</h4>
+    <pre><code>
+        [
+            {
+                "age": "5",
+                "breed": "Birmano",
+                "id": 1,
+                "name": "felix",
+                "sound": "Miaow",
+                "type": "Gato"
+            },
+            {
+                "age": "1",
+                "breed": "Golden",
+                "id": 2,
+                "name": "Teo",
+                "sound": "Guau",
+                "type": "Perro"
+            },
+            {
+                "age": "2",
+                "breed": "Bull",
+                "id": 3,
+                "name": "Ares",
+                "sound": "Tsss",
+                "type": "Hurón"
+            },
+            {
+                "age": "4",
+                "breed": "",
+                "id": 4,
+                "name": "Boa cola roja",
+                "sound": "Eek Eek",
+                "type": "Boa"
+            }
+        ]
+    </code></pre>
+</div>
+
+
+<div class="endpoint">
+    <h3>2. Actualizar el nombre de animal</h3>
+    <p><strong>URL:</strong> <code>/daycare/update_animals/id</code></p>
+    <p><strong>Método:</strong> <code>PATCH</code></p>
+    <h4>Ejemplo de body</h4>
+    <pre><code>
+        {
+            "name": "Nuevo nombre"
+        }
+    </code></pre>
+    <h4>Ejemplo de respuesta:</h4>
+    <pre><code>
+        {
+            "mensaje": "Datos actualizados correctamente."
+        }
+    </code></pre>
+</div>
+
+
+<div class="endpoint">
+    <h3>3. Borra un animal por id</h3>
+    <p><strong>URL:</strong> <code>/daycare/delete_animals/id</code></p>
+    <p><strong>Método:</strong> <code>PATCH</code></p>
+    <h4>Ejemplo de respuesta:</h4>
+    <pre><code>
+        {
+            "mensaje": "El animal '{nombre de animal}' se borro correctamente."
+        }
+    </code></pre>
+</div>
+
+<div class="endpoint">
+    <h3>4. Crea un nuevo animal</h3>
+    <p><strong>URL:</strong> <code>/daycare/create_animal</code></p>
+    <p><strong>Método:</strong> <code>POST</code></p>
+    <h4>Ejemplo de body</h4>
+    <pre><code>
+        {
+            "name" : "Copito",
+            "type" : "Gato",
+            "breed": "Persa",
+            "age"  : 3,
+            "sound": "Miaow"
+        }
+    </code></pre>
+    <h4>Ejemplo de respuesta:</h4>
+    <pre><code>
+        {
+            "mensaje": "El animal Copito fue creado correctamente."
+        }
+    </code></pre>
+</div>
+
+<div class="endpoint">
+    <h3>5. Retorna una lista de animales</h3>
+    <p><strong>URL:</strong> <code>/daycare/get_animals</code></p>
+    <p><strong>Método:</strong> <code>GET</code></p>
+    <h4>Ejemplo de respuesta:</h4>
+    <pre><code>
+        [
+            {
+                "age": "5",
+                "breed": "Birmano",
+                "id": 1,
+                "name": "felix",
+                "sound": "Miaow",
+                "type": "Gato"
+            },
+            {
+                "age": "1",
+                "breed": "Golden",
+                "id": 2,
+                "name": "Teo",
+                "sound": "Guau",
+                "type": "Perro"
+            },
+            {
+                "age": "2",
+                "breed": "Bull",
+                "id": 3,
+                "name": "Ares",
+                "sound": "Tsss",
+                "type": "Hurón"
+            },
+            {
+                "age": "4",
+                "breed": "",
+                "id": 4,
+                "name": "Boa cola roja",
+                "sound": "Eek Eek",
+                "type": "Boa"
+            }
+        ]
+    </code></pre>
+</div>
+</body>
+</html>
